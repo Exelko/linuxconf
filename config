@@ -1,0 +1,229 @@
+
+[colors]
+background = #B5404E5C
+background-alt = #A078BA
+foreground = #E6BDBDBD
+underline = ${xrdb:color5}
+primary = ${xrdb:color5}
+secondary = #bf5f4d
+alert = #CEA0AE
+
+;=====================================================
+
+[sizes]
+bar-width = 1915
+bar-height = 30
+
+bar-offset-x = 5
+bar-top-gap = 5
+bar-bottom-gap = 5
+
+;=====================================================
+
+[bar/example]
+bottom = true
+fixed-center = true
+width = ${sizes.bar-width}
+height = ${sizes.bar-height}
+radius = 2.0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #ffffff
+
+border-size = 0
+border-color = #00000000
+border-left-size = ${sizes.bar-offset-x}
+border-left-color = #00000000
+;border-top-size = ${sizes.bar-top-gap}
+border-bottom-size = ${sizes.bar-bottom-gap}
+
+padding-left = 0
+padding-right = 3
+
+module-margin-left = 2
+module-margin-right = 3
+
+font-0 = San Francisco Display:size=8;0
+font-1 = San Francisco Display:size=8;0
+font-2 = San Francisco Display:size=8;0
+font-3 = Font Awesome Free-Regular-400=8;0
+
+modules-left = i3 xwindow
+modules-center =
+modules-right = xkeyboard volume backlight-acpi filesystem wlan eth battery date
+
+;separator = |
+
+tray-position = right
+tray-detached = false
+tray-padding = 1
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+label-layout-underline = ${colors.primary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.primary}
+label-indicator-underline = ${colors.primary}
+
+;=====================================================
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+;=====================================================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+;=====================================================
+;
+;   Modules
+;
+;=====================================================
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label>
+
+label = CPU %percentage%%
+
+#ramp-load-0 = ▁
+#ramp-load-1 = ▂
+#ramp-load-2 = ▃
+#ramp-load-3 = ▄
+#ramp-load-4 = ▅
+#ramp-load-5 = ▆
+#ramp-load-6 = ▇
+#ramp-load-7 = █
+
+
+;=====================================================
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %a %e %b
+time = %I:%M %p
+date-alt = %d-%m-%Y
+time-alt = %H:%M
+
+format =  <label>
+format-foreground = ${colors.foreground}
+
+label = %time%, %date%
+
+;=====================================================
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 30
+
+format-mounted = <label-mounted>
+label-mounted =   %mountpoint%: %free%
+
+format-unmounted = <label-unmounted>
+label-unmounted =   %mountpoint%: not mounted
+
+;=====================================================
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.background}
+
+label-focused = %name%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.underline}
+label-focused-padding = 4
+
+label-unfocused = %name%
+label-unfocused-padding = 4
+
+label-visible = %name%
+label-visible-underline = ${colors.secondary}
+label-visible-padding = 4
+
+label-urgent = %name%
+;label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 4
+
+;=====================================================
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label>
+label = RAM %percentage_used%%
+
+;=====================================================
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <label>
+format-warn = <label-warn>
+format-warn-underline = ${colors.alert}
+
+label = %temperature%
+label-warn = TEMP: %temperature%
+
+;=====================================================
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+
+format-muted = <label-muted>
+label-muted =  mute
+
+;=====================================================
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format = <label-indicator>
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.alert}
+
+;=====================================================
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 60
+
+;=====================================================
+;
+;   End Modules
+;
+;=====================================================
