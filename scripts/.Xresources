@@ -1,0 +1,49 @@
+
+*background:                      #24292A
+*foreground:                      #ccd2be
+*fading:                          15
+*fadeColor:                       black
+*cursorColor:                     #A078BA
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #A078BA
+
+!! black dark/light
+*color0:       #101218
+*color8:       #7788a1
+
+!! red dark/light
+*color1:       #ee829f
+*color9:       #ee829f
+
+!! green dark/light
+*color2:       #a5ffe1
+*color10:      #a5ffe1
+
+!! yellow dark/light
+*color3:       #ffefcc
+*color11:      #ffefcc
+
+!! blue dark/light
+*color4:       #97bbf7
+*color12:      #97bbf7
+
+!! magenta dark/light
+*color5:       #c0b7f9
+*color13:      #c0b7f9
+
+!! cyan dark/light
+*color6:       #97e0ff
+*color14:      #97e0ff
+
+!! white dark/light
+*color7:       #d1d4e0
+*color15:      #ffffff
+URxvt.font: xft:Noto Mono for Powerline:size=10
+
+xvt.cursorUnderline: true
+URxvt.internalBorder:  0
+URxvt.letterSpace: 1
+
+URxvt.transparent: true
+URxvt.shading:20
+URxvt.scrollBar: false
